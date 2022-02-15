@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { RECEIVE_PRODUCTS, ADD_TO_CART } from "../../constants/ActionTypes";
 
+// 카트 추가시 해당 상품 재고 -1 처리
 const products = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -13,13 +14,14 @@ const products = (state, action) => {
   }
 };
 
+// 상품 목록 저장, 상품의 id를 key 값으로 상품 정보를 value 로 reduce
 const byIdReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PRODUCTS:
+      // products : { byId: { 1:{...}, 2:{...}, 3:{...} } }
       return {
         ...state,
         ...action.products.reduce((obj, product) => {
-          console.log("11111111111111111111");
           obj[product.id] = product;
           return obj;
         }, {}),
@@ -36,12 +38,12 @@ const byIdReducer = (state = {}, action) => {
   }
 };
 
-// 상품 목록 저장
+// 화면에 출력될 상품 id값 목록
 const visibleIdsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_PRODUCTS:
+      // products { visibleIds: [1, 2, 3] }
       return action.products.map((product) => {
-        console.log("22222222222222222222222222222");
         return product.id;
       });
     default:
@@ -49,6 +51,7 @@ const visibleIdsReducer = (state = [], action) => {
   }
 };
 
+// 액션 분기 처리 타입2
 // products: {byId: {…}, visibleIds: Array(3)}
 export default combineReducers({
   byId: byIdReducer,

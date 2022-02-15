@@ -26,7 +26,8 @@ const store = configureStore({
   middleware: middleware,
 });
 
-/* store 초기화 직후 액션 호출 부분 */
-store.dispatch(getAllProducts()); // 상품옥록조회
+/* store 초기화 직후 액션 호출 부분 ******************************* */
+store.dispatch(getAllProducts()); // 상품옥록조회, API 요청후 저장
+/* ************************************************************** */
 
 export default store;
