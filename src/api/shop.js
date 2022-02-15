@@ -11,4 +11,5 @@ const shop = {
   buyProducts: (payload, cb, timeout) =>
     setTimeout(() => cb(), timeout || TIMEOUT),
 };
+
 export default shop;

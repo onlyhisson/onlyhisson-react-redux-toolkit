@@ -5,13 +5,16 @@ import { checkout } from "./cartAction";
 import { getTotal, getCartProducts } from "./shoppingcartReducer";
 import Cart from "./Cart";
 
-const CartContainer = ({ products, total, checkout }) => (
-  <Cart
-    products={products}
-    total={total}
-    onCheckoutClicked={() => checkout(products)}
-  />
-);
+const CartContainer = ({ products, total, checkout }) => {
+  console.log(total);
+  return (
+    <Cart
+      products={products}
+      total={total}
+      onCheckoutClicked={() => checkout(products)}
+    />
+  );
+};
 
 CartContainer.propTypes = {
   products: PropTypes.arrayOf(
