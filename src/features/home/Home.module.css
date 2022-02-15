@@ -1,0 +1,37 @@
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeImgContainer {
+  border: solid 1px #dcd7da;
+  width: 36vmax;
+  max-width: 500px;
+  height: 36vmax;
+  max-height: 500px;
+  margin: 5px;
+}
+
+.homeImg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+.homeContent {
+  border: solid 1px #dcd7da;
+  width: 36vmax;
+  max-width: 500px;
+  height: 36vmax;
+  max-height: 500px;
+  font-size: 1rem;
+  margin: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .homeContainer {
+    flex-direction: column;
+  }
+}
